@@ -1,0 +1,13 @@
+syntax = "proto3";
+option csharp_namespace = "ApiBenchmark.Protocol";
+package benchmark;
+service StudentService {
+  rpc ListStudents (ListRequest) returns (ListReply);
+}
+message ListRequest { int32 limit = 1; }
+message Student {
+  string student_code = 1;
+  string full_name = 2;
+  string major = 3;
+}
+message ListReply { repeated Student students = 1; }
